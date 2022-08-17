@@ -23,9 +23,9 @@ def writehtmlconditional(dataarrayfromlog, writelogdata):
         else:
             tablulardata = """
             <tr {}>
-            <td>{}</td>
-            <td>{}</td>
-            <td>{}</td>
+            <th>{}</th>
+            <th>{}</th>
+            <th>{}</th>
             </tr>
             """.format("", data[0], data[1], data[2])
         writetohtml(tablulardata, writelogdata)

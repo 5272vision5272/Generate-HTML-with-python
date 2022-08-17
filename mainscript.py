@@ -36,8 +36,6 @@ tr:nth-child(even) {
 
 <h2>HTML Table</h2>
 <table>
-
-
 """
     writecode.write(htmltemp)
 
@@ -45,7 +43,7 @@ tr:nth-child(even) {
 def endhtmltemplate(writecode):
 
     htmltemp = """
-        </table>
+</table>
 
 </body>
 </html>
