@@ -34,7 +34,3 @@ def writehtmlconditional(dataarrayfromlog, writelogdata):
 
 def writetohtml(datalog,writeobject):
     writeobject.write(datalog)
-
-
-
-# writehtmlconditional()

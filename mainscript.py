@@ -51,6 +51,3 @@ def endhtmltemplate(writecode):
 </html>
         """
     writecode.write(htmltemp)
-
-
-# dataarrayfromlog = readdata()
