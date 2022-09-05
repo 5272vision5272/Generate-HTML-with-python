@@ -1,5 +1,7 @@
 import mainscript
+import os.path
 import writehtmlconditional
+import datetime
 
 if __name__=="__main__":
 
@@ -8,6 +10,11 @@ if __name__=="__main__":
         readlogdatasuccess = open('success.log','r')
 
         writelogdata = open('index.html','a')
+
+        unidentifiedservers = open('absent-servers.log','a')
+        todaystime = "\n -->"+str(datetime.datetime.now()) + ": "
+        unidentifiedservers.write(str(todaystime))
+        
     except:
         print("File note found!..quiting")
         quit()
@@ -25,15 +32,22 @@ if __name__=="__main__":
 
         else:
             if int(readfromconsole) == 1:
+                
                 mainscript.consolidatedhtmltemplate(writelogdata)
                 serverlist = list()
                 serverlist = input("Enter server with spaces  : ").split()
                 for server in serverlist:
                     serverlogname = "{}.failed.log".format(server)
-                    serverlog = open(serverlogname,'r')
-                    dataarrayfromfailedlog = mainscript.readdata(serverlog)
-                    writehtmlconditional.writedfailedlog(dataarrayfromfailedlog,writelogdata,server)
-                    serverlog.close()
+                    if os.path.exists(serverlogname) :
+                        serverlog = open(serverlogname,'r')
+                        dataarrayfromfailedlog = mainscript.readdata(serverlog)
+                        writehtmlconditional.writedfailedlog(dataarrayfromfailedlog,writelogdata,server)
+                        serverlog.close()
+                    
+                    else:
+                        unidentifiedservers.write(server)
+                        unidentifiedservers.write(", ")
+                    
                 mainscript.consolidatedendhtmltemplate(writelogdata)
 
 
