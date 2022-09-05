@@ -3,59 +3,99 @@
 <html>
 <head>
 <style>
-table {
+* {
   font-family: arial, sans-serif;
+}
+
+table {
+  margin-left : auto;
+  margin-right : auto;
+  border : 2px solid #dddddd;
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 2px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+.success {
+  background-color : lime ;
 }
+
+.failed {
+background-color : #ff0000 ;
+}
+
+#tableheader {
+  text-align : center
+ }
+
+#columns {
+  background-color : #ffa500;
+}
+
+#headerhtml {
+  background-color : blue;
+  text-align : center;
+}
+
 </style>
 </head>
 <body>
 
-<h2>HTML Table</h2>
+<h2 id=headerhtml >SERVER CHECK STATUS</h2>
 <table>
-
-            <tr >
-            <th>check_name</th>
-            <th>check_status</th>
-            <th>check_value</th>
-            </tr>
-            
-            <tr class=success>
-            <td>dump1</td>
-            <td>success</td>
-            <td>dump1</td>
-            </tr>
-            
-            <tr class=failed>
+    <tr>
+    <th id=tableheader colspan=3>server1</th>
+    </tr>
+    <tr id='columns'>
+    <th>CHECK_NAME</th>
+    <th>CHK_STATUS</th>
+    <th>CHECK_VALUES</th>
+    </tr>
+     
+            <tr>
             <td>dump2</td>
-            <td>failed</td>
+            <td class=failed>failed</td>
             <td>dump2</td>
             </tr>
-            
-            <tr class=failed>
+             
+            <tr>
             <td>dump3</td>
-            <td>failed</td>
+            <td class=failed>failed</td>
             <td>dump3</td>
             </tr>
-            
-            <tr class=success>
-            <td>dump4</td>
-            <td>success</td>
-            <td>dump4</td>
+            </table> <br><table>
+    <tr>
+    <th id=tableheader colspan=3>server2</th>
+    </tr>
+    <tr id='columns'>
+    <th>CHECK_NAME</th>
+    <th>CHK_STATUS</th>
+    <th>CHECK_VALUES</th>
+    </tr>
+     
+            <tr>
+            <td>dump2</td>
+            <td class=failed>failed</td>
+            <td>dump2</td>
             </tr>
-            
-</table>
+             
+            <tr>
+            <td>dump3</td>
+            <td class=failed>failed</td>
+            <td>dump3</td>
+            </tr>
+             
+            <tr>
+            <td>dump4</td>
+            <td class=failed>failed</td>
+            <td>dump5</td>
+            </tr>
+            </table> <br>
 
 </body>
 </html>
